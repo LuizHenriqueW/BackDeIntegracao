@@ -19,8 +19,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Categorias'
-        '400':
-          description: Requisição inválida
+        '500':
+          description: Erro interno do servidor
+    get:
+      summary: Lista todas as categorias
+      responses:
+        '200':
+          description: Lista de categorias
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Categorias'
         '500':
           description: Erro interno do servidor
   /fornecedores:
@@ -39,8 +50,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Fornecedores'
-        '400':
-          description: Requisição inválida
+        '500':
+          description: Erro interno do servidor
+    get:
+      summary: Lista todos os fornecedores
+      responses:
+        '200':
+          description: Lista de fornecedores
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Fornecedores'
         '500':
           description: Erro interno do servidor
   /produtos:
@@ -59,8 +81,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Produtos'
-        '400':
-          description: Requisição inválida
+        '500':
+          description: Erro interno do servidor
+    get:
+      summary: Lista todos os produtos
+      responses:
+        '200':
+          description: Lista de produtos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Produtos'
         '500':
           description: Erro interno do servidor
 components:
