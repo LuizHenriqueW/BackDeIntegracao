@@ -7,11 +7,11 @@ import com.fiec.estoqueia.business.entities.Produtos;
 import com.fiec.estoqueia.services.CategoriaService;
 import com.fiec.estoqueia.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/categorias")
@@ -24,5 +24,11 @@ public class CategoriaController {
     ResponseEntity<Categorias> createCategoria(@RequestBody CreateCategoriaDto createCategoriaDto){
         Categorias categoria = categoriaService.createCategoria(createCategoriaDto);
         return ResponseEntity.ok(categoria);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Categorias>> listaCategorias(){
+        List<Categorias> categorias = categoriaService.listaCategorias();
+        return new ResponseEntity<>(categorias, HttpStatus.OK);
     }
 }
